@@ -1,11 +1,16 @@
 import React from "react"
 import styles from "./styles.module.css"
-import LayersIcon from "../../icons/LayersIcon.tsx"
 import TilesController from "./Tiles/TilesController.tsx"
+import Divider from "@mui/material/Divider"
+import ResetNorth from "./resetNorth/ResetNorth.tsx"
 
 const MapToolbox = () => {
   return (
     <div className={styles.toolbox}>
+      <ResetNorth/>
+      
+      <Divider/>
+      
       <TilesController/>
     </div>
   )

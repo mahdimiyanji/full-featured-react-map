@@ -19,7 +19,7 @@ const MapContainer = () => {
           latitude: 37.8,
           zoom: 14
         }}
-        // mapStyle={tiles.find(tile => tile.uuid === activeTile).serverUrl}
+        // mapStyle={tiles.find(tile => tile.uuid === activeTile)?.serverUrl}
         mapLib={mapliber}
       >
         <MapToolbox/>
