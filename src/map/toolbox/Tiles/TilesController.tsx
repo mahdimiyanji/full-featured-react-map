@@ -31,7 +31,7 @@ const TilesController = () => {
   }
   
   return (
-    <div>
+    <>
       <Tooltip title={ "سرور های نقشه" } placement="left-start">
         <Button className={ styles.panelButton } onClick={ handlePopoverOpen }>
           <LayersIcon/>
@@ -78,7 +78,7 @@ const TilesController = () => {
           </FormControl>
         </div>
       </Popover>
-    </div>
+    </>
   )
 }
 
