@@ -10,8 +10,12 @@ import FormControlLabel from "@mui/material/FormControlLabel"
 import Radio from "@mui/material/Radio"
 import Button from "@mui/material/Button"
 import styles from "../styles.module.css"
+import { useTranslation } from "react-i18next"
 
 const TilesController = () => {
+  
+  const { t } = useTranslation("map")
+  
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
   
   const tiles = useMapStore(state => state.tiles)
@@ -32,7 +36,7 @@ const TilesController = () => {
   
   return (
     <>
-      <Tooltip title={ "سرور های نقشه" } placement="left-start">
+      <Tooltip title={ t("TILE_SERVERS") } placement="left-start">
         <Button className={ styles.panelButton } onClick={ handlePopoverOpen }>
           <LayersIcon/>
         </Button>
@@ -54,7 +58,7 @@ const TilesController = () => {
         <div>
           <FormControl>
             <FormLabel sx={ { p: 1.5, pb: 1 } }>
-              سرور های نقشه
+              {t("TILE_SERVERS")}
             </FormLabel>
             
             <RadioGroup
