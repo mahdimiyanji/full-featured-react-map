@@ -2,7 +2,6 @@ import React from "react"
 import styles from "./styles.module.css"
 import "maplibre-gl/dist/maplibre-gl.css"
 import {Map} from "react-map-gl"
-import mapliber from "maplibre-gl"
 import useMapStore from "./store/useMapStore.ts"
 import MapToolbox from "./toolbox/MapToolbox.tsx"
 
@@ -20,7 +19,6 @@ const MapContainer = () => {
           zoom: 14
         }}
         // mapStyle={tiles.find(tile => tile.uuid === activeTile)?.serverUrl}
-        mapLib={mapliber}
       >
         <MapToolbox/>
       </Map>
