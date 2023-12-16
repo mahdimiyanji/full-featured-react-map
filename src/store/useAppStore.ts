@@ -2,6 +2,7 @@ import { create } from "zustand"
 import { IAppStore, ILanguage } from "./types.ts"
 import { immer } from "zustand/middleware/immer"
 import languagesConfig from "./languagesConfig.ts"
+import i18n from "i18next"
 
 const useMapStore = create<IAppStore>()(
   immer((set, getState) => ({
@@ -15,6 +16,7 @@ const useMapStore = create<IAppStore>()(
             state.activeLanguage = languageItem
             document.dir = languageItem.direction
             document.documentElement.lang = languageItem.id.toLowerCase()
+            i18n.changeLanguage(languageItem.id.toLowerCase())
           }
         })
       }
