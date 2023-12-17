@@ -4,12 +4,14 @@
   src: local("IranSans"), url("./IRANSansXFaNum-Bold.woff2") format("woff2");
   font-weight: 900;
 }
+
 @font-face {
   font-family: "IranSans";
   font-display: swap;
   src: local("IranSans"), url("./IRANSansXFaNum-DemiBold.woff2") format("woff2");
   font-weight: 700;
 }
+
 @font-face {
   font-family: "IranSans";
   font-display: swap;

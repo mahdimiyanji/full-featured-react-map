@@ -6,8 +6,8 @@ import MapContainer from "../map/MapContainer.tsx"
 const Layout = () => {
   return (
     <div className={styles.pageLayout}>
-      <Header/>
-      <MapContainer/>
+      <Header />
+      <MapContainer />
     </div>
   )
 }

@@ -17,16 +17,16 @@ const MapContainer = () => {
   const activeTile = useMapStore(state => state.activeTile)
   
   return (
-    <div className={ styles.mapContainer }>
+    <div className={styles.mapContainer}>
       <Map
-        initialViewState={ {
+        initialViewState={{
           longitude: -122.4,
           latitude: 37.8,
           zoom: 14
-        } }
+        }}
         // mapStyle={tiles.find(tile => tile.uuid === activeTile)?.serverUrl}
       >
-        <MapToolbox/>
+        <MapToolbox />
       </Map>
     </div>
   )

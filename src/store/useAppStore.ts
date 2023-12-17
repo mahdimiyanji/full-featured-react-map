@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { IAppStore, ILanguage } from "./types.ts"
+import { IAppStore } from "./types.ts"
 import { immer } from "zustand/middleware/immer"
 import languagesConfig from "./languagesConfig.ts"
 import i18n from "i18next"

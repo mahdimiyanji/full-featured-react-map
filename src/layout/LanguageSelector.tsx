@@ -32,37 +32,37 @@ const LanguageSelector = () => {
   return (
     <>
       <Button
-        size={ "small" }
-        variant={ "outlined" }
-        onClick={ handlePopoverOpen }
+        size={"small"}
+        variant={"outlined"}
+        onClick={handlePopoverOpen}
       >
-        { activeLanguage.title }
+        {activeLanguage.title}
       </Button>
       
       <Menu
-        open={ !!anchorEl }
-        anchorEl={ anchorEl }
-        onClose={ handleClose }
-        anchorOrigin={ {
+        open={!!anchorEl}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
           vertical: "bottom",
           horizontal: "left"
-        } }
-        transformOrigin={ {
+        }}
+        transformOrigin={{
           vertical: "top",
           horizontal: "left"
-        } }
+        }}
       >
         {
           languages.map(item =>
             <MenuItem
-              className={ styles.languageItem }
-              onClick={ () => handleClick(item.id) }
-              key={ item.id }
+              className={styles.languageItem}
+              onClick={() => handleClick(item.id)}
+              key={item.id}
             >
               <ListItemIcon>
-                <img src={ item.flagPicture }/>
+                <img src={item.flagPicture} />
               </ListItemIcon>
-              <ListItemText>{ item.title }</ListItemText>
+              <ListItemText>{item.title}</ListItemText>
             </MenuItem>
           )
         }

@@ -4,8 +4,8 @@ import LanguageSelector from "./LanguageSelector.tsx"
 
 const Header = () => {
   return (
-    <div className={ styles.header }>
-      <LanguageSelector/>
+    <div className={styles.header}>
+      <LanguageSelector />
     </div>
   )
 }

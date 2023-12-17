@@ -34,9 +34,9 @@ const App = () => {
   const cache = activeLanguage.direction === "rtl" ? directionCache.RTL : directionCache.LTR
   
   return (
-    <CacheProvider value={ cache }>
-      <ThemeProvider theme={ theme }>
-        <Layout/>
+    <CacheProvider value={cache}>
+      <ThemeProvider theme={theme}>
+        <Layout />
       </ThemeProvider>
     </CacheProvider>
   )

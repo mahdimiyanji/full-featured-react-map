@@ -30,9 +30,9 @@ const ResetNorth = () => {
   }, [bearing])
   
   return (
-    <Tooltip title={ t("NORTH") } placement="left-start">
-      <Button className={ styles.panelButton } onClick={ handleClick }>
-        <CompassIcon style={ { transform: `rotateZ(${ bearing - 45 }deg)`, color: "red" } }/>
+    <Tooltip title={t("NORTH")} placement="left-start">
+      <Button className={styles.panelButton} onClick={handleClick}>
+        <CompassIcon style={{ transform: `rotateZ(${bearing - 45}deg)`, color: "red" }} />
       </Button>
     </Tooltip>
   )

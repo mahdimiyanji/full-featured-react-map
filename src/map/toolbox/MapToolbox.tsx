@@ -7,11 +7,11 @@ import ResetNorth from "./resetNorth/ResetNorth.tsx"
 const MapToolbox = () => {
   return (
     <div className={styles.toolbox}>
-      <ResetNorth/>
+      <ResetNorth />
       
-      <Divider/>
+      <Divider />
       
-      <TilesController/>
+      <TilesController />
     </div>
   )
 }

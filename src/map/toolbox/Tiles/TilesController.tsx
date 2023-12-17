@@ -36,45 +36,45 @@ const TilesController = () => {
   
   return (
     <>
-      <Tooltip title={ t("TILE_SERVERS") } placement="left-start">
-        <Button className={ styles.panelButton } onClick={ handlePopoverOpen }>
-          <LayersIcon/>
+      <Tooltip title={t("TILE_SERVERS")} placement="left-start">
+        <Button className={styles.panelButton} onClick={handlePopoverOpen}>
+          <LayersIcon />
         </Button>
       </Tooltip>
       
       <Popover
-        open={ !!anchorEl }
-        anchorEl={ anchorEl }
-        onClose={ handleClose }
-        anchorOrigin={ {
+        open={!!anchorEl}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
           vertical: "top",
           horizontal: "left"
-        } }
-        transformOrigin={ {
+        }}
+        transformOrigin={{
           vertical: "top",
           horizontal: "left"
-        } }
+        }}
       >
         <div>
           <FormControl>
-            <FormLabel sx={ { p: 1.5, pb: 1 } }>
+            <FormLabel sx={{ p: 1.5, pb: 1 }}>
               {t("TILE_SERVERS")}
             </FormLabel>
             
             <RadioGroup
-              value={ activeTile }
-              onChange={ handleLayerChange }
-              sx={ {
+              value={activeTile}
+              onChange={handleLayerChange}
+              sx={{
                 p: 1
-              } }
+              }}
             >
               {
                 tiles.map(tile => (
                   <FormControlLabel
-                    value={ tile.uuid }
-                    control={ <Radio/> }
-                    label={ tile.title }
-                    key={ tile.uuid }
+                    value={tile.uuid}
+                    control={<Radio />}
+                    label={tile.title}
+                    key={tile.uuid}
                   />
                 ))
               }
