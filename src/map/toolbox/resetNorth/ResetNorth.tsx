@@ -25,10 +25,6 @@ const ResetNorth = () => {
     })
   }, [])
   
-  useEffect(() => {
-    console.log(bearing)
-  }, [bearing])
-  
   return (
     <Tooltip title={t("NORTH")} placement="left-start">
       <Button className={styles.panelButton} onClick={handleClick}>
