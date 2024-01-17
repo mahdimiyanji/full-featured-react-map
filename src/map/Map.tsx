@@ -17,6 +17,7 @@ const Map = () => {
   
   const tiles = useMapStore(state => state.tiles)
   const activeTile = useMapStore(state => state.activeTile)
+  const showBuildings = useMapStore(state => state.showBuildings)
   
   return (
     <div className={styles.mapContainer}>
@@ -29,10 +30,14 @@ const Map = () => {
         mapStyle={tiles.find(tile => tile.uuid === activeTile)?.serverUrl}
         mapLib={maplibregl}
         styleDiffing
+        style={{ fontFamily: "unset" }}
       >
         <MapToolbox />
         
-        <Buildings/>
+        {
+          showBuildings &&
+          <Buildings />
+        }
       </MapGl>
     </div>
   )
