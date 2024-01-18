@@ -8,7 +8,8 @@ import i18next from "i18next"
 import fa from "./i18n/fa.ts"
 import en from "./i18n/en.ts"
 import maplibregl from "maplibre-gl"
-import Buildings from "./components/Buildings.tsx"
+import Buildings from "./controllers/Buildings.tsx"
+import Terrain from "./controllers/Terrain.tsx"
 
 i18next.addResourceBundle("fa", "map", fa)
 i18next.addResourceBundle("en", "map", en)
@@ -38,6 +39,8 @@ const Map = () => {
           showBuildings &&
           <Buildings />
         }
+        
+        <Terrain />
       </MapGl>
     </div>
   )

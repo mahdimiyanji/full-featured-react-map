@@ -9,6 +9,11 @@ const useMapStore = create<IMapStore>()(
     activeTile: tileServers[1].uuid,
     showBuildings: true,
     buildingsTileUrl: "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
+    terrainTileUrl: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
+    hillshadeTileUrl: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
+    hillShade: true,
+    terrain: true,
+    exaggeration: 1,
     
     setActiveTile: (tileId) => {
       set(state => {

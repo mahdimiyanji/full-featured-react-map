@@ -5,6 +5,11 @@ export type IMapState = {
   activeTile: string
   showBuildings: boolean
   buildingsTileUrl: string
+  terrain: boolean
+  hillShade: boolean
+  exaggeration: number
+  terrainTileUrl: string
+  hillshadeTileUrl: string
 }
 
 export type IMapActions = {
