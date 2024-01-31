@@ -4,17 +4,28 @@
   right: 10px;
   display: flex;
   flex-direction: column;
-  background: white;
-  border-radius: 7px;
-}
-
-.panel-button {
-  padding: 2px;
-  border-radius: 0;
-  min-width: 35px !important;
-  min-height: 35px;
-  color: #2c2c2c;
-  overflow: hidden;
+  gap: 8px;
+  
+  .panel-button {
+    padding: 2px;
+    border-radius: 0;
+    min-width: 35px !important;
+    min-height: 35px;
+    color: #2c2c2c;
+    overflow: hidden;
+  }
+  
+  .toolbox-main-items {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 5px;
+  }
+  
+  .toolbox-settings-button {
+    background: white;
+    border-radius: 5px;
+  }
 }
 
 .settingsContainer {

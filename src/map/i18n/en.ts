@@ -6,4 +6,10 @@ export default {
   SETTINGS: "Settings",
   TILES_URL: "Tiles url",
   ADD_NEW_TILE: "Add new tile",
+  TOPOGRAPHY: "Topography",
+  SHOW_TERRAIN: "Show terrain",
+  SHOW_HILLSHADE: "Show hill shade",
+  EXAGGERATION: "Exaggeration",
+  TERRAIN_URL: "Terrain url",
+  HILLSHADE_URL: "Hill shade url",
 }

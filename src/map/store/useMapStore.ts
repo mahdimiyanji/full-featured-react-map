@@ -9,11 +9,13 @@ const useMapStore = create<IMapStore>()(
     activeTile: tileServers[1].uuid,
     showBuildings: true,
     buildingsTileUrl: "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
-    terrainTileUrl: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
-    hillshadeTileUrl: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
-    hillShade: true,
-    terrain: true,
-    exaggeration: 1,
+    terrainConfig: {
+      terrainTileUrl: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
+      hillshadeTileUrl: "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=o8iIkgKwbGcsp7zAKldE",
+      hillShade: true,
+      terrain: true,
+      exaggeration: 1
+    },
     
     setActiveTile: (tileId) => {
       set(state => {
@@ -24,6 +26,23 @@ const useMapStore = create<IMapStore>()(
     setShowBuildings: (show) => {
       set(state => {
         state.showBuildings = show
+      })
+    },
+    
+    changeTerrainProperty: (property, value) => {
+      set(state => {
+        if (property === "terrain" && typeof value === "boolean") {
+          state.terrainConfig.terrain = value
+        }
+        else if (property === "hillShade" && typeof value === "boolean") {
+          state.terrainConfig.hillShade = value
+        }
+        else if (property === "exaggeration" && typeof value === "number") {
+          state.terrainConfig.exaggeration = value
+        }
+        else {
+          console.error("Value is not valid for this property.")
+        }
       })
     }
   }))

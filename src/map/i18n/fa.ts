@@ -6,4 +6,10 @@ export default {
   SETTINGS: "تنظیمات",
   TILES_URL: "آدرس tile ها",
   ADD_NEW_TILE: "افزودن آدرس جدید",
+  TOPOGRAPHY: "توپوگرافی",
+  SHOW_TERRAIN: "نمایش عوارض زمین",
+  SHOW_HILLSHADE: "نمایش سایه ها",
+  EXAGGERATION: "ضریب ارتفاع",
+  TERRAIN_URL: "آدرس سرور عوارض زمین",
+  HILLSHADE_URL: "آدرس سرور سایه ها",
 }

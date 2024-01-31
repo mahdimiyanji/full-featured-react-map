@@ -1,20 +1,14 @@
-import React, { Dispatch, SetStateAction, useState } from "react"
-import Paper from "@mui/material/Paper"
+import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { ISettingsItem } from "./types.ts"
 import BuildingsIcon from "../../../icons/BuildingsIcon.tsx"
 import Tabs from "./Tabs"
-import Tab from "@mui/material/Tab"
-import Buildings from "./Buildings.tsx"
+import Buildings from "./buildings/Buildings.tsx"
 import styles from "./styles.module.css"
-import { ClickAwayListener, IconButton } from "@mui/material"
+import TerrainIcon from "../../../icons/TerrainIcon.tsx"
+import Terrain from "./terrain/Terrain.tsx"
 
-type Props = {
-  setShowSettings: Dispatch<SetStateAction<boolean>>
-}
-
-const Settings = (props: Props) => {
-  const { setShowSettings } = props
+const Settings = () => {
   
   const { t } = useTranslation("map")
   
@@ -26,9 +20,14 @@ const Settings = (props: Props) => {
       icon: <BuildingsIcon />,
       tooltipText: t("3D_BUILDINGS"),
       tabPanel: <Buildings />
+    },
+    {
+      uniqueName: "terrain",
+      icon: <TerrainIcon />,
+      tooltipText: t("TOPOGRAPHY"),
+      tabPanel: <Terrain />
     }
   ]
-  
   
   const handleChange = (newValue: string) => {
     setActiveSettingsItemName(newValue)
@@ -37,19 +36,17 @@ const Settings = (props: Props) => {
   const activeSettings = settingsItems.find(item => item.uniqueName === activeSettingsItemName)!
   
   return (
-    <ClickAwayListener onClickAway={() => setShowSettings(false)}>
-      <Paper className={styles.settingsContainer}>
-        <Tabs
-          tabs={settingsItems}
-          activeTab={activeSettingsItemName}
-          onChange={handleChange}
-        />
-        
-        {
-          activeSettings.tabPanel
-        }
-      </Paper>
-    </ClickAwayListener>
+    <div className={styles.settingsContainer}>
+      <Tabs
+        tabs={settingsItems}
+        activeTab={activeSettingsItemName}
+        onChange={handleChange}
+      />
+      
+      {
+        activeSettings.tabPanel
+      }
+    </div>
   )
 }
 

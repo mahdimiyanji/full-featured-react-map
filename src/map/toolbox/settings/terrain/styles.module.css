@@ -1,0 +1,29 @@
+.terrain-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  
+  & .terrain-form-item {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+    
+    & > p {
+      white-space: nowrap;
+    }
+    
+    & .tile-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      direction: ltr;
+    }
+  }
+  
+  & .button-container {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+  }
+}

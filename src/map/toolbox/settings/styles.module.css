@@ -4,45 +4,6 @@
   display: flex;
 }
 
-.buildings-form-container {
-  flex: 1;
-  padding: 12px;
-  contain: size;
-  
-  & .title {
-    font-size: 1.2em;
-    font-weight: 600;
-    margin-bottom: 24px;
-  }
-  
-  & .buildings-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    
-    & .buildings-form-item {
-      display: flex;
-      gap: 8px;
-      justify-content: space-between;
-      align-items: center;
-      
-      & .tile-name {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 70%;
-        direction: ltr;
-      }
-    }
-    
-    & .button-container {
-      margin-top: 24px;
-      display: flex;
-      justify-content: center;
-    }
-  }
-}
-
 .tabs {
   display: flex;
   flex-direction: column;
@@ -52,5 +13,21 @@
   
   &.active {
     background: red;
+  }
+}
+
+.tab-panel {
+  flex: 1;
+  padding: 12px;
+  contain: size;
+  
+  & .tab-panel-title {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  
+  & .tab-panel-title-divider {
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
 }

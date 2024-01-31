@@ -1,10 +1,12 @@
 import React from "react"
 import styles from "./styles.module.css"
+import formStyles from "../styles.module.css"
 import { useTranslation } from "react-i18next"
 import Switch from "@mui/material/Switch"
-import useMapStore from "../../store/useMapStore.ts"
+import useMapStore from "../../../store/useMapStore.ts"
 import Tooltip from "@mui/material/Tooltip"
 import Button from "@mui/material/Button"
+import Divider from "@mui/material/Divider"
 
 const Buildings = () => {
   
@@ -15,13 +17,14 @@ const Buildings = () => {
   const setShowBuildings = useMapStore(state => state.setShowBuildings)
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.checked)
     setShowBuildings(e.target.checked)
   }
   
   return (
-    <div className={styles.buildingsFormContainer}>
-      <p className={styles.title}>{t("3D_BUILDINGS")}</p>
+    <div className={formStyles.tabPanel}>
+      <p className={formStyles.tabPanelTitle}>{t("3D_BUILDINGS")}</p>
+      
+      <Divider className={formStyles.tabPanelTitleDivider} />
       
       <div className={styles.buildingsForm}>
         <div className={styles.buildingsFormItem}>

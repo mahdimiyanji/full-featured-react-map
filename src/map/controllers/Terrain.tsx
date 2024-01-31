@@ -1,29 +1,34 @@
 import { Layer, Source, useMap } from "react-map-gl"
-import { memo, useEffect } from "react"
+import { memo, useEffect, useRef } from "react"
 import useMapStore from "../store/useMapStore.ts"
 
 const Terrain = () => {
   
-  const terrainTileUrl = useMapStore(state => state.terrainTileUrl)
-  const hillshadeTileUrl = useMapStore(state => state.hillshadeTileUrl)
-  const terrain = useMapStore(state => state.terrain)
-  const hillShade = useMapStore(state => state.hillShade)
-  const exaggeration = useMapStore(state => state.exaggeration)
+  const terrainTileUrl = useMapStore(state => state.terrainConfig.terrainTileUrl)
+  const hillshadeTileUrl = useMapStore(state => state.terrainConfig.hillshadeTileUrl)
+  const terrain = useMapStore(state => state.terrainConfig.terrain)
+  const hillShade = useMapStore(state => state.terrainConfig.hillShade)
+  const exaggeration = useMapStore(state => state.terrainConfig.exaggeration)
+  
+  const isMapStylesLoaded = useRef(false)
   
   const mapRef = useMap()
   const map = mapRef.current!.getMap()
   
   useEffect(() => {
-    if (map.isStyleLoaded()) {
+    if (isMapStylesLoaded.current) {
       handleTerrainTiles()
     }
     else {
-      map.on("style.load", handleTerrainTiles)
+      map.on("style.load", () => {
+        isMapStylesLoaded.current = true
+        handleTerrainTiles()
+      })
     }
-  }, [terrain, exaggeration])
+  }, [terrain, exaggeration, map])
   
   const handleTerrainTiles = () => {
-    const isTerrainSourceLoaded = map.getSource("terrain")
+    const isTerrainSourceLoaded = !!map.getSource("terrain")
     if (terrain) {
       if (!isTerrainSourceLoaded) {
         map.addSource("terrain", {

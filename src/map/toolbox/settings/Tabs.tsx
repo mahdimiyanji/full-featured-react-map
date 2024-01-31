@@ -21,7 +21,15 @@ const Tabs = (props: Props) => {
     <div className={styles.tabs}>
       {
         tabs.map(tab => (
-          <Tooltip title={tab.tooltipText} key={tab.uniqueName}>
+          <Tooltip
+            title={tab.tooltipText}
+            placement={"left"}
+            onClick={e => {
+              e.stopPropagation()
+              e.preventDefault()
+            }}
+            key={tab.uniqueName}
+          >
             <IconButton
               className={activeTab && styles.active}
               onClick={() => onChange(tab.uniqueName)}
