@@ -53,7 +53,7 @@ const MapToolbox = () => {
             if (item.placement === "main") {
               res.push(item.controller)
             }
-            if (index !== toolboxItems.length - 1) {
+            if (index < toolboxItems.length - 2) {
               res.push(<Divider />)
             }
             return res
