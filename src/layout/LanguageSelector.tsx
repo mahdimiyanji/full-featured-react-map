@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Button from "@mui/material/Button"
+import IconButton from "@mui/material/IconButton"
 import useAppStore from "../store/useAppStore.ts"
 import styles from "./styles.module.css"
 import { ILanguage } from "../store/types.ts"
@@ -7,11 +7,11 @@ import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import ListItemText from "@mui/material/ListItemText"
 import ListItemIcon from "@mui/material/ListItemIcon"
+import LanguageIcon from "../icons/LanguageIcon.tsx"
 
 const LanguageSelector = () => {
   
   const languages = useAppStore(state => state.languages)
-  const activeLanguage = useAppStore(state => state.activeLanguage)
   const setActiveLanguage = useAppStore(state => state.setActiveLanguage)
   
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
@@ -31,13 +31,13 @@ const LanguageSelector = () => {
   
   return (
     <>
-      <Button
+      <IconButton
         size={"small"}
-        variant={"outlined"}
+        sx={{ color: "white" }}
         onClick={handlePopoverOpen}
       >
-        {activeLanguage.title}
-      </Button>
+        <LanguageIcon />
+      </IconButton>
       
       <Menu
         open={!!anchorEl}

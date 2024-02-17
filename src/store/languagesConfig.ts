@@ -1,6 +1,6 @@
 import { ILanguage, ILanguageItem } from "./types.ts"
-import UsaFlag from "../layout/flags/United-States.png"
-import IranFlag from "../layout/flags/Iran.png"
+import UsaFlag from "../layout/images/United-States.png"
+import IranFlag from "../layout/images/Iran.png"
 
 const languagesConfig: ILanguageItem[] = [
   {

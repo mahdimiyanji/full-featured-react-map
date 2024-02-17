@@ -8,11 +8,20 @@
 
 .header {
   width: 100%;
-  padding: 16px;
+  height: 42px;
+  background: #0b2127;
+  padding: 8px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
   flex-direction: row-reverse;
+  
+  & span {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
 }
 
 .language-selector-container {
