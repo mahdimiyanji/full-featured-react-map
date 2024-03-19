@@ -1,13 +1,24 @@
-import { useMap } from "react-map-gl"
 import { memo, useEffect } from "react"
+import { useMap } from "react-map-gl"
+import { IBuildingsState } from "../store/slices/buildings/types.ts"
 import useMapStore from "../store/useMapStore.ts"
 
 const Buildings = () => {
   
   const buildingsTileUrl = useMapStore(state => state.buildingsTileUrl)
+  const setBuildingsConfig = useMapStore(state => state.setBuildingsConfig)
   
   const mapRef = useMap()
   const map = mapRef.current!.getMap()
+  
+  // load and restore buildings settings from local storage in first render
+  useEffect(() => {
+    const loadedObject = localStorage.getItem("__terrain")
+    if (loadedObject) {
+      const __mapBuildingsSettings = JSON.parse(loadedObject) as IBuildingsState
+      setBuildingsConfig(__mapBuildingsSettings)
+    }
+  }, [])
   
   useEffect(() => {
     if (map.isStyleLoaded()) {
