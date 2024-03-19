@@ -13,11 +13,11 @@ import MenuItem from "@mui/material/MenuItem"
 const Terrain = () => {
   const { t } = useTranslation("map")
   
-  const terrainTileUrl = useMapStore(state => state.terrainConfig.terrainTileUrl)
-  const hillshadeTileUrl = useMapStore(state => state.terrainConfig.hillshadeTileUrl)
-  const terrain = useMapStore(state => state.terrainConfig.terrain)
-  const hillShade = useMapStore(state => state.terrainConfig.hillShade)
-  const exaggeration = useMapStore(state => state.terrainConfig.exaggeration)
+  const terrainTileUrl = useMapStore(state => state.terrainTileUrl)
+  const hillshadeTileUrl = useMapStore(state => state.hillshadeTileUrl)
+  const terrain = useMapStore(state => state.terrain)
+  const hillShade = useMapStore(state => state.hillShade)
+  const exaggeration = useMapStore(state => state.exaggeration)
   const changeTerrainProperty = useMapStore(state => state.changeTerrainProperty)
   
   return (

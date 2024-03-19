@@ -1,6 +1,6 @@
 import { IMapTile } from "./types.ts"
 
-const tileServers: IMapTile[] = [
+const tileServersConfig: IMapTile[] = [
   {
     uuid: "42ae6a7c-110f-4ddd-9cbb-d01b026ce7f6",
     serverUrl: "https://api.maptiler.com/maps/basic-v2/style.json?key=o8iIkgKwbGcsp7zAKldE",
@@ -28,4 +28,4 @@ const tileServers: IMapTile[] = [
   }
 ]
 
-export default tileServers
+export default tileServersConfig
