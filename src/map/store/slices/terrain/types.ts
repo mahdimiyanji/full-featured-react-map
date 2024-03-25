@@ -1,6 +1,6 @@
 export type ITerrainSlice = ITerrainState & ITerrainActions
 
-type ITerrainState = {
+export type ITerrainState = {
   terrain: boolean
   hillShade: boolean
   exaggeration: number
@@ -10,4 +10,5 @@ type ITerrainState = {
 
 type ITerrainActions = {
   changeTerrainProperty: (property: keyof Omit<ITerrainState, "terrainTileUrl" | "hillshadeTileUrl">, value: boolean | number) => void
+  setTerrainConfig: (config: ITerrainState) => void
 }

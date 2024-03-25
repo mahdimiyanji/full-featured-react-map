@@ -23,5 +23,15 @@ export const terrainSlice: ImmerStateCreator<ITerrainSlice> = (set) => ({
         console.error("Value is not valid for this property.")
       }
     })
+  },
+  
+  setTerrainConfig: (config) => {
+    set(state => {
+      state.terrainTileUrl = config.terrainTileUrl
+      state.hillshadeTileUrl = config.hillshadeTileUrl
+      state.hillShade = config.hillShade
+      state.terrain = config.terrain
+      state.exaggeration = config.exaggeration
+    })
   }
 })

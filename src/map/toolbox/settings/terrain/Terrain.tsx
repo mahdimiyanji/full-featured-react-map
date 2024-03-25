@@ -1,14 +1,15 @@
-import React from "react"
-import { useTranslation } from "react-i18next"
-import useMapStore from "../../../store/useMapStore.ts"
-import styles from "./styles.module.css"
-import formStyles from "../styles.module.css"
-import Switch from "@mui/material/Switch"
-import Tooltip from "@mui/material/Tooltip"
 import Button from "@mui/material/Button"
 import Divider from "@mui/material/Divider"
-import Select from "@mui/material/Select"
 import MenuItem from "@mui/material/MenuItem"
+import Select from "@mui/material/Select"
+import Switch from "@mui/material/Switch"
+import Tooltip from "@mui/material/Tooltip"
+import React, { useEffect } from "react"
+import { useTranslation } from "react-i18next"
+import { ITerrainState } from "../../../store/slices/terrain/types.ts"
+import useMapStore from "../../../store/useMapStore.ts"
+import formStyles from "../styles.module.css"
+import styles from "./styles.module.css"
 
 const Terrain = () => {
   const { t } = useTranslation("map")
@@ -19,6 +20,36 @@ const Terrain = () => {
   const hillShade = useMapStore(state => state.hillShade)
   const exaggeration = useMapStore(state => state.exaggeration)
   const changeTerrainProperty = useMapStore(state => state.changeTerrainProperty)
+  
+  // save terrain settings in local storage
+  useEffect(() => {
+    const unSubscribe = useMapStore.subscribe(
+      state => [
+        state.terrainTileUrl,
+        state.hillshadeTileUrl,
+        state.terrain,
+        state.hillShade,
+        state.exaggeration
+      ],
+      (newConfig) => {
+        const configObject: ITerrainState = {
+          terrainTileUrl: newConfig[0] as string,
+          hillshadeTileUrl: newConfig[1] as string,
+          terrain: newConfig[2] as boolean,
+          hillShade: newConfig[3] as boolean,
+          exaggeration: newConfig[4] as number
+        }
+        localStorage.setItem("__terrain", JSON.stringify(configObject))
+      },
+      {
+        fireImmediately: true
+      }
+    )
+    
+    return () => {
+      unSubscribe()
+    }
+  }, [])
   
   return (
     <div className={formStyles.tabPanel}>
