@@ -26,7 +26,7 @@ const Buildings = () => {
           buildingsTileUrl: newConfig[0] as string,
           showBuildings: newConfig[1] as boolean
         }
-        localStorage.setItem("__terrain", JSON.stringify(configObject))
+        localStorage.setItem("__buildings", JSON.stringify(configObject))
       },
       {
         fireImmediately: true

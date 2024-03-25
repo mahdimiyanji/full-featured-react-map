@@ -13,7 +13,7 @@ const Buildings = () => {
   
   // load and restore buildings settings from local storage in first render
   useEffect(() => {
-    const loadedObject = localStorage.getItem("__terrain")
+    const loadedObject = localStorage.getItem("__buildings")
     if (loadedObject) {
       const __mapBuildingsSettings = JSON.parse(loadedObject) as IBuildingsState
       setBuildingsConfig(__mapBuildingsSettings)
