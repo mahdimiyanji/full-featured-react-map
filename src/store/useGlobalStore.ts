@@ -1,10 +1,10 @@
+import i18n from "i18next"
 import { create } from "zustand"
-import { IAppStore } from "./types.ts"
 import { immer } from "zustand/middleware/immer"
 import languagesConfig from "./languagesConfig.ts"
-import i18n from "i18next"
+import { IAppStore } from "./types.ts"
 
-const useMapStore = create<IAppStore>()(
+const useGlobalStore = create<IAppStore>()(
   immer((set, getState) => ({
       languages: languagesConfig,
       activeLanguage: languagesConfig[0],
@@ -24,4 +24,4 @@ const useMapStore = create<IAppStore>()(
   )
 )
 
-export default useMapStore
+export default useGlobalStore

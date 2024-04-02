@@ -1,15 +1,18 @@
-import React, { ReactElement, useMemo, useRef, useState } from "react"
-import styles from "./styles.module.css"
-import TilesController from "./tiles/TilesController.tsx"
 import Divider from "@mui/material/Divider"
+import Popover from "@mui/material/Popover"
+import React, { ReactElement, useMemo, useRef, useState } from "react"
+import useGlobalStore from "../../store/useGlobalStore.ts"
 import ResetNorth from "./resetNorth/ResetNorth.tsx"
 import Settings from "./settings/Settings.tsx"
 import SettingsButton from "./settings/SettingsButton.tsx"
-import { IToolboxItem } from "./types.ts"
-import Popover from "@mui/material/Popover"
+import styles from "./styles.module.css"
+import TilesController from "./tiles/TilesController.tsx"
 import TilesForm from "./tiles/TilesForm.tsx"
+import { IToolboxItem } from "./types.ts"
 
 const MapToolbox = () => {
+  
+  const activeLanguage = useGlobalStore(state => state.activeLanguage)
   
   const toolboxRef = useRef<HTMLDivElement>(null)
   
@@ -44,6 +47,8 @@ const MapToolbox = () => {
   }
   
   const activeToolboxItem = toolboxItems.find(item => item.name === activeToolboxId)
+  
+  const isRTL = activeLanguage.direction === "rtl"
   
   return (
     <div className={styles.toolbox} ref={toolboxRef}>
@@ -80,11 +85,11 @@ const MapToolbox = () => {
           onClose={handleClose}
           anchorOrigin={{
             vertical: "top",
-            horizontal: -2
+            horizontal: isRTL ? -2 : 37
           }}
           transformOrigin={{
             vertical: "top",
-            horizontal: "right"
+            horizontal: isRTL ? "right" : "left"
           }}
           elevation={0}
         >

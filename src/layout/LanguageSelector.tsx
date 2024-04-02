@@ -1,18 +1,18 @@
-import React, { useState } from "react"
 import IconButton from "@mui/material/IconButton"
-import useAppStore from "../store/useAppStore.ts"
-import styles from "./styles.module.css"
-import { ILanguage } from "../store/types.ts"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ListItemText from "@mui/material/ListItemText"
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
-import ListItemText from "@mui/material/ListItemText"
-import ListItemIcon from "@mui/material/ListItemIcon"
+import React, { useState } from "react"
 import LanguageIcon from "../icons/LanguageIcon.tsx"
+import { ILanguage } from "../store/types.ts"
+import useGlobalStore from "../store/useGlobalStore.ts"
+import styles from "./styles.module.css"
 
 const LanguageSelector = () => {
   
-  const languages = useAppStore(state => state.languages)
-  const setActiveLanguage = useAppStore(state => state.setActiveLanguage)
+  const languages = useGlobalStore(state => state.languages)
+  const setActiveLanguage = useGlobalStore(state => state.setActiveLanguage)
   
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
   

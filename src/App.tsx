@@ -1,11 +1,11 @@
 import "./styles.css"
 import "./i18n.ts"
+import createCache from "@emotion/cache"
+import { CacheProvider } from "@emotion/react"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 import rtlPlugin from "stylis-plugin-rtl"
-import { CacheProvider } from "@emotion/react"
-import createCache from "@emotion/cache"
-import useMapStore from "./store/useAppStore.ts"
 import Layout from "./layout/Layout.tsx"
+import useGlobalStore from "./store/useGlobalStore.ts"
 
 const theme = createTheme({
   typography: {
@@ -30,7 +30,7 @@ const directionCache = {
 }
 
 const App = () => {
-  const activeLanguage = useMapStore(state => state.activeLanguage)
+  const activeLanguage = useGlobalStore(state => state.activeLanguage)
   const cache = activeLanguage.direction === "rtl" ? directionCache.RTL : directionCache.LTR
   
   return (
