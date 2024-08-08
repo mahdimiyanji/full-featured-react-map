@@ -1,23 +1,11 @@
 import "./styles.css"
 import "./i18n.ts"
 import createCache from "@emotion/cache"
-import { CacheProvider } from "@emotion/react"
-import { createTheme, ThemeProvider } from "@mui/material/styles"
+import {CacheProvider} from "@emotion/react"
 import rtlPlugin from "stylis-plugin-rtl"
 import Layout from "./layout/Layout.tsx"
+import MuiThemeProvider from "./MuiThemeProvider.tsx"
 import useGlobalStore from "./store/useGlobalStore.ts"
-
-const theme = createTheme({
-  typography: {
-    fontFamily: [
-      "Iransans",
-      "Roboto"
-    ].join(","),
-    button: {
-      fontFamily: "Iransans"
-    }
-  }
-})
 
 const directionCache = {
   LTR: createCache({
@@ -35,9 +23,9 @@ const App = () => {
   
   return (
     <CacheProvider value={cache}>
-      <ThemeProvider theme={theme}>
+      <MuiThemeProvider>
         <Layout />
-      </ThemeProvider>
+      </MuiThemeProvider>
     </CacheProvider>
   )
 }

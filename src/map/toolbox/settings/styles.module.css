@@ -1,5 +1,6 @@
 .settings-container {
-  min-width: 500px;
+  width: calc(100vw - 63px);
+  max-width: 500px;
   min-height: 550px;
   display: flex;
 }
