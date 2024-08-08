@@ -1,13 +1,12 @@
 import React from "react"
 import styles from "./styles.module.css"
-import "maplibre-gl/dist/maplibre-gl.css"
-import { Map as MapGl } from "react-map-gl/maplibre"
+import {Map as MapGl} from "react-map-gl"
 import useMapStore from "./store/useMapStore.ts"
 import MapToolbox from "./toolbox/MapToolbox.tsx"
 import i18next from "i18next"
 import fa from "./i18n/fa.ts"
 import en from "./i18n/en.ts"
-import maplibregl from "maplibre-gl"
+import mapbox from "mapbox"
 import Buildings from "./controllers/Buildings.tsx"
 import Terrain from "./controllers/Terrain.tsx"
 
@@ -29,8 +28,12 @@ const Map = () => {
           zoom: 14
         }}
         mapStyle={tiles.find(tile => tile.uuid === activeTile)?.serverUrl}
-        mapLib={maplibregl}
+          // @ts-ignore
+        mapLib={mapbox}
         styleDiffing
+        projection={{
+            name: "globe"
+        }}
         style={{ fontFamily: "unset" }}
       >
         <MapToolbox />
