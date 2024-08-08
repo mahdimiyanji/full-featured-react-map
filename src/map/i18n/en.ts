@@ -11,5 +11,5 @@ export default {
   SHOW_HILLSHADE: "Show hill shade",
   EXAGGERATION: "Exaggeration",
   TERRAIN_URL: "Terrain url",
-  HILLSHADE_URL: "Hill shade url",
+  HILLSHADE_URL: "Hill shade url"
 }

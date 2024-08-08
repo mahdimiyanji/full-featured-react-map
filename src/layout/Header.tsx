@@ -6,7 +6,7 @@ import Logo from "./images/mahdi-miyanji.png"
 const Header = () => {
   return (
     <div className={styles.header}>
-      <img src={Logo} height={140} alt={"mahdi miyanji"}/>
+      <img src={Logo} height={140} alt={"mahdi miyanji"} />
       <LanguageSelector />
     </div>
   )

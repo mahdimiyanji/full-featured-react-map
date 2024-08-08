@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./styles.module.css"
-import {Map as MapGl} from "react-map-gl"
+import { Map as MapGl } from "react-map-gl"
 import useMapStore from "./store/useMapStore.ts"
 import MapToolbox from "./toolbox/MapToolbox.tsx"
 import i18next from "i18next"
@@ -28,11 +28,11 @@ const Map = () => {
           zoom: 14
         }}
         mapStyle={tiles.find(tile => tile.uuid === activeTile)?.serverUrl}
-          // @ts-ignore
+        // @ts-ignore
         mapLib={mapbox}
         styleDiffing
         projection={{
-            name: "globe"
+          name: "globe"
         }}
         style={{ fontFamily: "unset" }}
       >

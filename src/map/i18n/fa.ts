@@ -11,5 +11,5 @@ export default {
   SHOW_HILLSHADE: "نمایش سایه ها",
   EXAGGERATION: "ضریب ارتفاع",
   TERRAIN_URL: "آدرس سرور عوارض زمین",
-  HILLSHADE_URL: "آدرس سرور سایه ها",
+  HILLSHADE_URL: "آدرس سرور سایه ها"
 }
